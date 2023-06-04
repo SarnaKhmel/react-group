@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import HomePage from "./Pages/HomePage";
+import ErrorPage from "./Pages/ErrorPage";
+import AddUsersPage from "./Pages/AddUsersPage";
+import AboutPage from "./Pages/AboutPage";
 
-function App() {
+import ReduxPage from "./Pages/ReduxPage";
+
+import { Route, Routes } from "react-router";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route index path="/" element={<HomePage />} />
+        <Route path="/users" element={<AddUsersPage />} />
+        <Route path="/about" element={<AboutPage />} />
+
+        <Route path="/redux" element={<ReduxPage />} />
+
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
